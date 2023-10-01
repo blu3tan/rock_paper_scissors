@@ -64,6 +64,8 @@ console.log(getComputerChoice())
 
 let playerChoice = prompt ("Make your choice");
     playerChoice = playerChoice.toLowerCase();
+let computerScore = 0;
+let playerScore = 0;
 let result;
 
 // compare player and computer choice to see if are equal
@@ -74,7 +76,7 @@ playerChoice === computerChoice
 
 
 
-function playRound () {
+/* function playRound () {
 
     switch (playerChoice) {
         case "rock":
@@ -95,4 +97,45 @@ function playRound () {
             : console.log("You Win! Scissors beats Paper");
             break; 
     }
+} */
+
+function playRound () {
+
+    switch (playerChoice) {
+        case "rock":
+            if (computerChoice === "paper") {
+                console.log("You lose! Paper beats Rock");
+                computerScore = computerScore + 1;  
+            }
+            else {
+                console.log("You Win! Rock beats Scissors");
+                playerScore = playerScore + 1;
+            }
+            break;
+
+        case "paper":
+            if (computerChoice === "rock") {
+                console.log("You Win! Paper beats Rock");
+                playerScore = playerScore + 1;  
+            }
+            else {
+                console.log("You Lose! Scissors beats Paper");
+                computerScore = computerScore + 1;
+            }
+            break;
+            
+        case "scissors":
+            if (computerChoice === "rock") {
+                console.log("You Lose! Rock beats Scissors");
+                computerScore = computerScore + 1;  
+            }
+            else {
+                console.log("You Win! Scissors beats Paper");
+                playerScore = playerScore + 1;
+            }
+            break;    
+    }
 }
+
+console.log(computerScore);
+console.log(playerScore);
