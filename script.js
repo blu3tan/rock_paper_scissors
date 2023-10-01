@@ -31,8 +31,6 @@ function getComputerChoice () {
 }
 
 let computerChoice = getComputerChoice()
-console.log (computerChoice);
-
 
     // generate computer choice using switch statement
 
@@ -56,14 +54,24 @@ console.log (computerChoice);
             break;
     }
 }
-
-console.log(getComputerChoice())
  */
 
 // get player choice
 
-let playerChoice = prompt ("Make your choice");
-    playerChoice = playerChoice.toLowerCase();
+let playerChoice = prompt ("Make your choice between rock, paper or scissors");
+checkPlayerChoice()
+
+function checkPlayerChoice () {
+    if (playerChoice === "") {
+        alert ("You have to choose one...");
+        window.location.reload();
+    }
+    else {
+        playerChoice = playerChoice.toLowerCase();
+    }
+}
+
+
 let computerScore = 0;
 let playerScore = 0;
 let result;
@@ -73,7 +81,6 @@ let result;
 playerChoice === computerChoice
 ? console.log("Draw! Try again")
 : playRound();
-
 
 
 /* function playRound () {
