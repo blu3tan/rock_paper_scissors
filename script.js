@@ -11,15 +11,16 @@
 
 // generate computer choice using if statement
 
-let randomChoice = Math.floor (Math.random() * (3))
+let randomNum = Math.floor (Math.random() * (3))
 
 function getComputerChoice () {
     let choice;
-    if (randomChoice === 0) {
+    if (randomNum === 0) {
         choice = "rock";
         return choice;
+        
     }
-    else if (randomChoice === 1) {
+    else if (randomNum === 1) {
         choice = "paper";
         return choice;
     }
@@ -28,7 +29,9 @@ function getComputerChoice () {
         return choice;
     }
 }
-    console.log(getComputerChoice())
+
+let computerChoice = getComputerChoice()
+console.log (computerChoice);
 
 
     // generate computer choice using switch statement
@@ -56,3 +59,16 @@ function getComputerChoice () {
 
 console.log(getComputerChoice())
  */
+
+// get player choice
+
+let playerChoice = prompt ("Make your choice");
+    playerChoice = playerChoice.toLowerCase();
+let result;
+
+// compare player and computer choice to see if are equal
+
+playerChoice === computerChoice
+? console.log("Draw! Try again")
+: console.log("wait");
+
