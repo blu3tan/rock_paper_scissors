@@ -70,5 +70,29 @@ let result;
 
 playerChoice === computerChoice
 ? console.log("Draw! Try again")
-: console.log("wait");
+: playRound();
 
+
+
+function playRound () {
+
+    switch (playerChoice) {
+        case "rock":
+            computerChoice === "paper"
+            ? console.log("You lose! Paper beats Rock")
+            : console.log("You Win! Rock beats Scissors");
+            break;
+        
+        case "paper":
+            computerChoice === "rock"
+            ? console.log("You Win! Paper beats Rock")
+            : console.log("You Lose! Scissors beats Paper");
+            break;
+            
+        case "scissors":
+            computerChoice === "rock"
+            ? console.log("You Lose! Rock beats Scissors")
+            : console.log("You Win! Scissors beats Paper");
+            break; 
+    }
+}
