@@ -1,80 +1,60 @@
-// array metod, not used bcs not already part of the course
-
-/*  let computerChoice = ["rock", "paper", "scissors"];
-
- function getComputerChoice () {
- 	console.log(computerChoice[(Math.floor(Math.random() * computerChoice.length))]);
- }
- getComputerChoice() */
-
-
-
-// generate computer choice using if statement
-
-let randomNum = Math.floor (Math.random() * (3))
-
-function getComputerChoice () {
-    let choice;
-    if (randomNum === 0) {
-        choice = "rock";
-        return choice;
-        
-    }
-    else if (randomNum === 1) {
-        choice = "paper";
-        return choice;
-    }
-    else {
-        choice = "scissors"
-        return choice;
-    }
-}
-
-let computerChoice = getComputerChoice()
-
-    // generate computer choice using switch statement
-
-    /* let randomChoice = Math.floor (Math.random() * (3))
-
-    function getComputerChoice() {
-        let choice;
-
-    switch (randomChoice) {
-        case 0:
-            choice = "rock";
-            return choice;
-            break;
-        case 1:
-            choice = "paper";
-            return choice;
-            break;
-        case 2:
-            choice = "scissors";
-            return choice;
-            break;
-    }
-}
- */
 
 // get player choice
 
-let playerChoice = prompt ("Make your choice between rock, paper or scissors");
-checkPlayerChoice()
+/* let playerChoice = prompt ("Make your choice between rock, paper or scissors");
+    playerChoice = playerChoice.toLowerCase(); */
+
+
+/* checkPlayerChoice()
+
+// check if playerchoice is null and trasform to lowercase
 
 function checkPlayerChoice () {
-    if (playerChoice === "") {
+    if (playerChoice === "" || playerChoice === null) {
         alert ("You have to choose one...");
         window.location.reload();
     }
     else {
         playerChoice = playerChoice.toLowerCase();
     }
-}
+} */
 
 
-let computerScore = 0;
+/* let computerScore = 0;
 let playerScore = 0;
-let result;
+playRound(); */
+
+// compare player and computer choice to see if are equal
+
+/* playerChoice === computerChoice
+? console.log("Draw! Try again")
+: playRound(); */
+
+
+/* function playRound () {
+
+    switch (playerChoice) {
+        case "rock":
+            return== "paper"
+            ? console.log("You lose! Paper beats Rock")
+            : console.log("You Win! Rock beats Scissors");
+        
+        case "paper":
+            return== "rock"
+            ? console.log("You Win! Paper beats Rock")
+            : console.log("You Lose! Scissors beats Paper");
+            
+        case "scissors":
+            return== "rock"
+            ? console.log("You Lose! Rock beats Scissors")
+            : console.log("You Win! Scissors beats Paper");
+    }
+} */
+
+// get player choice
+
+/* let playerChoice = prompt ("Make your choice between rock, paper or scissors");
+    playerChoice = playerChoice.toLowerCase();
 
 // compare player and computer choice to see if are equal
 
@@ -83,34 +63,10 @@ playerChoice === computerChoice
 : playRound();
 
 
-/* function playRound () {
-
     switch (playerChoice) {
-        case "rock":
-            computerChoice === "paper"
-            ? console.log("You lose! Paper beats Rock")
-            : console.log("You Win! Rock beats Scissors");
-            break;
-        
-        case "paper":
-            computerChoice === "rock"
-            ? console.log("You Win! Paper beats Rock")
-            : console.log("You Lose! Scissors beats Paper");
-            break;
-            
-        case "scissors":
-            computerChoice === "rock"
-            ? console.log("You Lose! Rock beats Scissors")
-            : console.log("You Win! Scissors beats Paper");
-            break; 
-    }
-} */
 
-function playRound () {
-
-    switch (playerChoice) {
         case "rock":
-            if (computerChoice === "paper") {
+            if (return== "paper") {
                 console.log("You lose! Paper beats Rock");
                 computerScore = computerScore + 1;  
             }
@@ -118,10 +74,9 @@ function playRound () {
                 console.log("You Win! Rock beats Scissors");
                 playerScore = playerScore + 1;
             }
-            break;
 
         case "paper":
-            if (computerChoice === "rock") {
+            if (return== "rock") {
                 console.log("You Win! Paper beats Rock");
                 playerScore = playerScore + 1;  
             }
@@ -129,10 +84,9 @@ function playRound () {
                 console.log("You Lose! Scissors beats Paper");
                 computerScore = computerScore + 1;
             }
-            break;
             
         case "scissors":
-            if (computerChoice === "rock") {
+            if (return== "rock") {
                 console.log("You Lose! Rock beats Scissors");
                 computerScore = computerScore + 1;  
             }
@@ -140,9 +94,71 @@ function playRound () {
                 console.log("You Win! Scissors beats Paper");
                 playerScore = playerScore + 1;
             }
-            break;    
     }
 }
 
+
 console.log(computerScore);
-console.log(playerScore);
+console.log(playerScore); */
+
+const choices = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore = 0;
+
+// generate the computer choice
+
+function getComputerChoice() {
+    let randomChoice = Math.floor (Math.random() * (3))
+    switch (randomChoice) {
+        case 0:
+            return "rock";
+        case 1:
+            return "paper";
+        case 2:
+            return "scissors";
+        }
+}
+
+// generate the player choice
+
+function getPlayerChoice() {
+    let input = prompt("Type Rock, Paper, or Scissors");
+  while (input == null) {
+    input = prompt("Type Rock, Paper, or Scissors");
+  }
+  input = input.toLowerCase();
+  let check = validateInput(input);
+  while (check == false) {
+    input = prompt(
+      "Type Rock, Paper, or Scissors. Spelling needs to be exact"
+    );
+    while (input == null) {
+      input = prompt("Type Rock, Paper, or Scissors");
+    }
+    input = input.toLowerCase();
+    check = validateInput(input);
+  }
+  return input;
+}
+
+function validateInput(choice) {
+    return choices.includes(choice);
+}
+
+// Play one single round of the game
+
+function playRound() {
+    const computerChoice = getComputerChoice();
+    const playerChoice = getPlayerChoice();
+
+    console.log(computerChoice);
+    console.log(playerChoice);
+}
+
+// play an entire game and keep score
+
+function game() {
+    playRound();
+}
+
+playRound();
