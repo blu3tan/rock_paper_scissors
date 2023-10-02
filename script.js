@@ -78,6 +78,7 @@ function gameOf5 () {
     for (let i = 0; i <=4; i++) {
         playSingleRound();
     }
+    scoreRegister();
 }
 
 // Keep track of scores and print on the console the outcome
@@ -97,6 +98,3 @@ function scoreRegister() {
         console.log("You Loose the the game! Very predictable outcome...")
     }
 }
-
-gameOf5();
-scoreRegister();
