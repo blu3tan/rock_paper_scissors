@@ -102,8 +102,8 @@ console.log(computerScore);
 console.log(playerScore); */
 
 const choices = ["rock", "paper", "scissors"];
-let playerScore = 0;
-let computerScore = 0;
+let winners = [];
+
 
 // generate the computer choice
 
@@ -129,9 +129,7 @@ function getPlayerChoice() {
   input = input.toLowerCase();
   let check = validateInput(input);
   while (check == false) {
-    input = prompt(
-      "Type Rock, Paper, or Scissors. Spelling needs to be exact"
-    );
+    input = prompt("Type Rock, Paper, or Scissors. Spelling needs to be exact");
     while (input == null) {
       input = prompt("Type Rock, Paper, or Scissors");
     }
@@ -149,11 +147,13 @@ function validateInput(choice) {
 
 function playRound() {
     const computerChoice = getComputerChoice();
-    const playerChoice = getPlayerChoice();
-
     console.log(computerChoice);
-    console.log(playerChoice);
-}
+    const playerChoice = getPlayerChoice();
+    const winner = checkWinner(computerChoice, playerChoice);
+    winners.push(winner);
+    }
+   
+
 
 // play an entire game and keep score
 
@@ -161,4 +161,22 @@ function game() {
     playRound();
 }
 
+function checkWinner(computer, player) {
+    if (computer === player) {
+        return "Tie";
+    }
+    else if (
+        (computer === "rock" && player === "scissors" ||
+        computer === "paper" && player === "rock" || 
+        computer === "scissors" && player === "paper")
+    ) {
+        return "computer";
+    }
+    else {
+        return "player";
+    }
+}
+
 playRound();
+
+console.log(winners);
