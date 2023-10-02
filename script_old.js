@@ -158,7 +158,7 @@ function playRound() {
 // play an entire game and keep score
 
 function game() {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 0; i <= 4; i++) {
         playRound();
     }
 }
