@@ -86,7 +86,7 @@ function scoreRegister() {
     console.log(`${ties} rounds ended in a tie`)
     console.log(`You won ${playerScore} rounds`);
     console.log(`I won ${computerScore} rounds`);
-    
+
     if (playerScore === computerScore) {
         console.log("It was a faire game, we are even.")
     }

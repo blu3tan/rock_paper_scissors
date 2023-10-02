@@ -1,0 +1,32 @@
+/* Reset margins and boxes */
+
+html {
+    box-sizing: border-box;
+  }
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+* {
+	padding: 0;
+	margin: 0;
+	}
+
+/* General styling */
+
+body {
+    font-family: 'Rubik', sans-serif;
+    height: 100vh;
+    font-size: 18px;
+    background-color: #626161;
+    /* text-align: center; */
+      }
+
+h1 {
+    font-family:b'Rubik', sans-serif;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 50px;
+}
