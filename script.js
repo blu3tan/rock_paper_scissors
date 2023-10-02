@@ -158,7 +158,9 @@ function playRound() {
 // play an entire game and keep score
 
 function game() {
-    playRound();
+    for (let i = 1; i <= 5; i++) {
+        playRound();
+    }
 }
 
 function checkWinner(computer, player) {
@@ -176,7 +178,3 @@ function checkWinner(computer, player) {
         return "player";
     }
 }
-
-playRound();
-
-console.log(winners);
