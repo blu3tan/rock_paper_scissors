@@ -75,6 +75,10 @@ function playSingleRound () {
 // play a game of 5 rounds of RPS
 
 function gameOf5 () {
+    playerScore = 0;
+    computerScore = 0;
+    ties = 0;
+
     for (let i = 0; i <=4; i++) {
         playSingleRound();
     }
@@ -84,17 +88,20 @@ function gameOf5 () {
 // Keep track of scores and print on the console the outcome
 
 function scoreRegister() {
-    console.log(`${ties} rounds ended in a tie`)
+    console.log(`${ties} rounds ended in a tie`);
     console.log(`You won ${playerScore} rounds`);
     console.log(`I won ${computerScore} rounds`);
 
     if (playerScore === computerScore) {
-        console.log("It was a faire game, we are even.")
+        console.log("It was a faire game, we are even.");
+        console.log("--------------------------------------------------");
     }
     else if (playerScore > computerScore) {
-        console.log("You Won the match!? I am speachless...")
+        console.log("You Won the match!? I am speachless...");
+        console.log("--------------------------------------------------");
     }
     else {
-        console.log("You Loose the the game! Very predictable outcome...")
+        console.log("You Loose the the game! Very predictable outcome...");
+        console.log("---------------------------------------------------");
     }
 }
