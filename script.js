@@ -18,14 +18,12 @@ function getPlayerChoice() {
   while (input == null) {
     input = prompt("Type Rock, Paper, or Scissors");
   }
-  input = input.toLowerCase();
   let check = validateInput(input);
   while (check == false) {
     input = prompt("You entered a wrong choice, type Rock, Paper, or Scissors.");
     while (input == null) {
       input = prompt("Type Rock, Paper, or Scissors");
     }
-    input = input.toLowerCase();
     check = validateInput(input);
   }
   return input;
@@ -41,6 +39,18 @@ function validateInput(choice) {
         return false;
     }
 }
-getComputerChoice();
-console.log(getComputerChoice());
-console.log(getPlayerChoice());
+
+function playSingleRound (playerHand, computerHand) {
+    while (playerHand === computerHand) {
+        return `Tie! you both choose ${playerHand}`;
+    }
+    if   ((playerHand === "rock" && computerHand === "scissors" ||
+         playerHand === "paper" && computerHand === "rock" ||
+         playerHand === "scissors" && computerHand === "paper"))
+         {
+            return `You won! ${playerHand} beats ${computerHand}`;
+         }
+    else {
+            return `You loose! ${computerHand} beats ${playerHand}`;
+    }
+}
