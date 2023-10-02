@@ -94,14 +94,14 @@ function scoreRegister() {
 
     if (playerScore === computerScore) {
         console.log("It was a faire game, we are even.");
-        console.log("--------------------------------------------------");
+        console.log("-----------------------------------");
     }
     else if (playerScore > computerScore) {
         console.log("You Won the match!? I am speachless...");
-        console.log("--------------------------------------------------");
+        console.log("-----------------------------------");
     }
     else {
         console.log("You Loose the the game! Very predictable outcome...");
-        console.log("---------------------------------------------------");
+        console.log("-----------------------------------");
     }
 }
