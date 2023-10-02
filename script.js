@@ -88,20 +88,24 @@ function gameOf5 () {
 // Keep track of scores and print on the console the outcome
 
 function scoreRegister() {
+    let winColor = "color:LawnGreen;";
+    let looseColor = "color:OrangeRed;";
+    let tieColor = "color:DeepSkyBlue;"
+
     console.log(`${ties} rounds ended in a tie`);
     console.log(`You won ${playerScore} rounds`);
     console.log(`I won ${computerScore} rounds`);
 
     if (playerScore === computerScore) {
-        console.log("It was a faire game, we are even.");
+        console.log("%c It was a fair game, we are even.", tieColor);
         console.log("-----------------------------------");
     }
     else if (playerScore > computerScore) {
-        console.log("You Won the match!? I am speachless...");
+        console.log("%c You Won the match!? I am speachless...", winColor);
         console.log("-----------------------------------");
     }
     else {
-        console.log("You Loose the the game! Very predictable outcome...");
+        console.log("%c You Loose the the game! Very predictable outcome...", looseColor);
         console.log("-----------------------------------");
     }
 }
