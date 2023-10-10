@@ -1,30 +1,8 @@
-
-// define new logic with buttons
-
-const rockBtn = document.querySelector('#rock_button-2');
-const paperBtn = document.querySelector('#paper_button-2');
-const scissorsBtn = document.querySelector('#scissors_button-2');
-const resetBtn = document.querySelector('#reset_button-2');
+// global variables
 
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-let playerChoice;
-
-// get player selection by buttons
-
-rockBtn.addEventListener('click', () => {
-    playerChoice = 'rock';
-    console.log(playerChoice);
-});
-paperBtn.addEventListener('click', () => {
-    playerChoice = 'paper';
-    console.log(playerChoice);
-});
-scissorsBtn.addEventListener('click', () => {
-    playerChoice = 'scissors';
-    console.log(playerChoice);
-});
 
 // generate the random computer choice
 
@@ -40,10 +18,41 @@ function getComputerChoice() {
         }
 }
 
+// generate the player choice (console version)
+
+// function getPlayerChoice() {
+//     let input = prompt("Type Rock, Paper, or Scissors");
+//   while (input == null) {
+//     input = prompt("Type Rock, Paper, or Scissors");
+//   }
+//   let check = validateInput(input);
+//   while (check == false) {
+//     input = prompt("You entered a wrong choice, type Rock, Paper, or Scissors.");
+//     while (input == null) {
+//       input = prompt("Type Rock, Paper, or Scissors");
+//     }
+//     check = validateInput(input);
+//   }
+//   return input;
+// }
+
+// validate the player input to avoid everything other than RPS
+
+// function validateInput(choice) {
+//     if ((choice === "rock" ||
+//          choice === "paper" ||
+//          choice === "scissors")) {
+//             return true;
+//          }
+//     else {
+//         return false;
+//     }
+// }
+
 // play one round of RPS
 
 function playSingleRound () {
-    const playerHand = playerChoice;
+    const playerHand = getPlayerChoice();
     const computerHand = getComputerChoice();
 
     while (playerHand === computerHand) {
