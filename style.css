@@ -24,7 +24,7 @@ h2 {
 }
 p {
   color: #C29615;
-  font-size: 2.8vw;
+  font-size: 3vw;
 }
 
 .main {
@@ -88,7 +88,7 @@ p {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   /* border: 1px solid red; */
@@ -97,7 +97,7 @@ p {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
   align-items:center;
   /* border: 1px solid red; */
@@ -110,27 +110,25 @@ p {
   justify-content: center;
 }
 p.left-text {
+  visibility: hidden;
   text-align: center;
-  /* padding-left: 2vw; */
 }
 p.right-text {
+  visibility:hidden;
   text-align: center;
-  /* padding-left: 3vw; */
 }
 p.face {
-  /* padding-left: 3vw; */
 
 }
 p.bottom-text {
   padding-right: 3vw;
-  /* padding-bottom: 5vh; */
 }
 
 #rock_button-2 {
 
 }
 
-#led-2 {
-  /* fill:fuchsia; */
-  /* opacity: 50%; */
+.ledLight {
+  fill: #2B2A28;
+  opacity: 100%;
 }

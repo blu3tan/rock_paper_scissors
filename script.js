@@ -5,25 +5,53 @@ const rockBtn = document.querySelector('#rock_button-2');
 const paperBtn = document.querySelector('#paper_button-2');
 const scissorsBtn = document.querySelector('#scissors_button-2');
 const resetBtn = document.querySelector('#reset_button-2');
+const ledLight = document.querySelector('#led-2')
+
+const leftScore = document.querySelector('#leftScore');
+const rightScore = document.querySelector('#rightScore');
+const faces = document.querySelector('#faces');
+const bottomText = document.querySelector('#bottomText');
 
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 let playerChoice;
+let power = true;
 
 // get player selection by buttons
 
 rockBtn.addEventListener('click', () => {
     playerChoice = 'rock';
-    console.log(playerChoice);
+    
 });
 paperBtn.addEventListener('click', () => {
     playerChoice = 'paper';
-    console.log(playerChoice);
+    
 });
 scissorsBtn.addEventListener('click', () => {
     playerChoice = 'scissors';
-    console.log(playerChoice);
+    
+});
+resetBtn.addEventListener('click', () => {
+    ledLight.classList.remove('ledLight');
+    if (power) {
+        bottomText.textContent = ('BEGIN');
+        power = false;
+    }
+    else {
+        bottomText.textContent = ('RESET');
+        power = true;
+    }
+    const leftText = document.querySelector('#left');
+    const rightText = document.querySelector('#right');
+    
+    setTimeout (() => { faces.textContent = ('ლ(｀ー´ლ)'); }, 1000);
+    setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
+    rightText.setAttribute('style','visibility: visible;'); } , 1500);
+    setTimeout (() => { leftScore.setAttribute('style','visibility: visible;');
+    rightScore.setAttribute('style','visibility: visible;'); } , 2000);
+    leftScore.textContent = (`${playerScore}`);
+    rightScore.textContent = (`${computerScore}`);
 });
 
 // generate the random computer choice
