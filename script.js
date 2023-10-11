@@ -7,6 +7,8 @@ const scissorsBtn = document.querySelector('#scissors_button-2');
 const resetBtn = document.querySelector('#reset_button-2');
 const ledLight = document.querySelector('#led-2')
 
+const leftText = document.querySelector('#left');
+const rightText = document.querySelector('#right');
 const leftScore = document.querySelector('#leftScore');
 const rightScore = document.querySelector('#rightScore');
 const faces = document.querySelector('#faces');
@@ -16,7 +18,8 @@ let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 let playerChoice;
-let power = true;
+let power = false;
+const running = false;
 
 // get player selection by buttons
 
@@ -32,26 +35,25 @@ scissorsBtn.addEventListener('click', () => {
     playerChoice = 'scissors';
     
 });
-resetBtn.addEventListener('click', () => {
+resetBtn.addEventListener('click', (e) => {
     ledLight.classList.remove('ledLight');
-    if (power) {
-        bottomText.textContent = ('BEGIN');
-        power = false;
-    }
-    else {
-        bottomText.textContent = ('RESET');
+    if (!power && !running) {
+        setTimeout (() => { bottomText.textContent = ('BEGIN'); }, 1500);
+        setTimeout (() => { faces.textContent = ('ლ(｀ー´ლ)'); }, 2000);
+        setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
+        rightText.setAttribute('style','visibility: visible;'); } , 2200);
+        setTimeout (() => { leftScore.setAttribute('style','visibility: visible;');
+        rightScore.setAttribute('style','visibility: visible;'); } , 2500);
+        leftScore.textContent = (`${playerScore}`);
+        rightScore.textContent = (`${computerScore}`);
         power = true;
+        running = true;
     }
-    const leftText = document.querySelector('#left');
-    const rightText = document.querySelector('#right');
+    else if (power || running) {
+        bottomText.textContent = ('RESET2');
+        console.log(e);
+    }
     
-    setTimeout (() => { faces.textContent = ('ლ(｀ー´ლ)'); }, 1000);
-    setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
-    rightText.setAttribute('style','visibility: visible;'); } , 1500);
-    setTimeout (() => { leftScore.setAttribute('style','visibility: visible;');
-    rightScore.setAttribute('style','visibility: visible;'); } , 2000);
-    leftScore.textContent = (`${playerScore}`);
-    rightScore.textContent = (`${computerScore}`);
 });
 
 // generate the random computer choice
