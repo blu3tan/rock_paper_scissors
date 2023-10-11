@@ -19,27 +19,45 @@ let computerScore = 0;
 let ties = 0;
 let playerChoice;
 let power = false;
-const running = false;
+let running = false;
+
+// text variables declaration
+const introText = [`We meet again, at last.\nChoose your weapon wisely…`, 
+`It's A Me, Odin\ni challeng you...`, `Shall we Play a game?\nI can smell your fear...`];
+
+const playerWins = [`Is that even possible?`, `Great, kid. Don’t get cocky`, `I have a bad feeling about this`, `I've made some very poor decisions`, `You have failed me for the last time`];
+
+const computerWins = [`Don’t be sorry, be better`, `You shouldn't have come back`, `YOU DIED`, `You know, sometimes I amaze even myself`, `Checkmate`];
+
+const computerEndText = [`"More human than human"\nis my motto`, `Praise the sun!\nI shall defeat you once more`, 
+`I find your lack of skill disturbing\nThis was too easy`];
+
+const playerEndText = [`I'll Be Back\nReset and i'll show you`, `Daisy, daisy...\nreset me if you dare`, 
+`The cake is a lie\nI seek revenge!`];
+
+const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑̑', '(͠≖ ͜ʖ͠≖)', '(⌐■_■)', '٩(^‿^)۶', '┌(ㆆ㉨ㆆ)ʃ'];
+const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '٩(๏_๏)۶', 't(-_-t)', '(҂◡_◡)', '(ಥ﹏ಥ)'];
 
 // get player selection by buttons
 
 rockBtn.addEventListener('click', () => {
     playerChoice = 'rock';
-    
+    playSingleRound();
 });
+
 paperBtn.addEventListener('click', () => {
-    playerChoice = 'paper';
-    
+    playerChoice = 'paper';  
 });
+
 scissorsBtn.addEventListener('click', () => {
-    playerChoice = 'scissors';
-    
+    playerChoice = 'scissors';   
 });
+
 resetBtn.addEventListener('click', (e) => {
     ledLight.classList.remove('ledLight');
     if (!power && !running) {
         setTimeout (() => { bottomText.textContent = ('BEGIN'); }, 1500);
-        setTimeout (() => { faces.textContent = ('ლ(｀ー´ლ)'); }, 2000);
+        setTimeout (() => { faces.textContent = ('{•̃_•̃}'); }, 2000);
         setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
         rightText.setAttribute('style','visibility: visible;'); } , 2200);
         setTimeout (() => { leftScore.setAttribute('style','visibility: visible;');
@@ -51,7 +69,6 @@ resetBtn.addEventListener('click', (e) => {
     }
     else if (power || running) {
         bottomText.textContent = ('RESET2');
-        console.log(e);
     }
     
 });
@@ -78,18 +95,20 @@ function playSingleRound () {
 
     while (playerHand === computerHand) {
         ties += 1;
-        return `Tie! you both choose ${playerHand}`;
+        return bottomText.textContent = (`Never tell me the odds!\nthis is a tie by ${playerHand}`);
     }
     if   ((playerHand === "rock" && computerHand === "scissors" ||
          playerHand === "paper" && computerHand === "rock" ||
          playerHand === "scissors" && computerHand === "paper"))
          {
             playerScore += 1;
-            return `You won! ${playerHand} beats ${computerHand}`;
+            leftScore.textContent = (`${playerScore}`);
+            return bottomText.textContent = (`Is that even possible?\nyour ${playerHand} beats my ${computerHand}`);
          }
     else {
             computerScore += 1;
-            return `You loose! ${computerHand} beats ${playerHand}`;
+            rightScore.textContent = (`${computerScore}`);
+            return bottomText.textContent = (`Don’t be sorry, be better\nmy ${computerHand} beats your ${playerHand}`);
     }
 }
 
