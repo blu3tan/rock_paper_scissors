@@ -22,17 +22,19 @@ let power = false;
 let running = false;
 
 // text variables declaration
-const introText = [`We meet again, at last.\nChoose your weapon wisely…`, 
-`It's A Me, Odin\ni challeng you...`, `Shall we Play a game?\nI can smell your fear...`];
+const introText = [`Play again, I dare you.\nI double dare you!`, `You seem a decent fellow.\nI hate to kill you.`, `We meet again, at last.\nChoose your weapon wisely…`, 
+`It's A Me, Odin\ni challenge you...`, `Shall we Play a game?\nI can smell your fear...`];
 
-const playerWins = [`Is that even possible?`, `Great, kid. Don’t get cocky`, `I have a bad feeling about this`, `I've made some very poor decisions`, `You have failed me for the last time`];
+const tieGame = [`Inconceivable!`, `Anybody want a peanut?`, `Try not. Do, or do not.`, `Alrighty then!`, `I can't believe this!`, `You must be cheating!`, `I find your luck disgusting`, `I’ll have what you're having`]
 
-const computerWins = [`Don’t be sorry, be better`, `You shouldn't have come back`, `YOU DIED`, `You know, sometimes I amaze even myself`, `Checkmate`];
+const playerWins = [`I want you to feel you're doing well`, `This is fine...`, `Is that even possible?`, `Great, kid. Don’t get cocky`, `I have a bad feeling about this`, `I've made some very poor decisions`, `You have failed me for the last time`, `He's on fire!`, `I am error...`, `How high can you get?`];
+
+const computerWins = [`It’s all in the reflexes`, `Why so serious?`, `Don’t be sorry, be better`, `You shouldn't have come back`, `YOU DIED`, `Sometimes I amaze even myself`, `Checkmate`, `Waka Waka Waka!`, `Press 'F' to pay respects`, `Flawless Victory!`, `It’s super effective!`];
 
 const computerEndText = [`"More human than human"\nis my motto`, `Praise the sun!\nI shall defeat you once more`, 
-`I find your lack of skill disturbing\nThis was too easy`];
+`I find your lack of skill disturbing\nThis was too easy`, `LEEEEEROY\nJENKINSSS`];
 
-const playerEndText = [`I'll Be Back\nReset and i'll show you`, `Daisy, daisy...\nreset me if you dare`, 
+const playerEndText = [`Never argue with the data.\nThis must be a glitch tho`, `I see dead people.\nTry me again..`, `I'll Be Back\nReset and i'll show you`, `Daisy, daisy...\nreset me if you dare`, 
 `The cake is a lie\nI seek revenge!`];
 
 const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑̑', '(͠≖ ͜ʖ͠≖)', '(⌐■_■)', '٩(^‿^)۶', '┌(ㆆ㉨ㆆ)ʃ'];
@@ -56,12 +58,12 @@ scissorsBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', (e) => {
     ledLight.classList.remove('ledLight');
     if (!power && !running) {
-        setTimeout (() => { bottomText.textContent = ('BEGIN'); }, 1500);
+        setTimeout (() => { bottomText.textContent = (randomWord(introText)); }, 2500);
         setTimeout (() => { faces.textContent = ('{•̃_•̃}'); }, 2000);
         setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
-        rightText.setAttribute('style','visibility: visible;'); } , 2200);
+        rightText.setAttribute('style','visibility: visible;'); } , 3200);
         setTimeout (() => { leftScore.setAttribute('style','visibility: visible;');
-        rightScore.setAttribute('style','visibility: visible;'); } , 2500);
+        rightScore.setAttribute('style','visibility: visible;'); } , 3200);
         leftScore.textContent = (`${playerScore}`);
         rightScore.textContent = (`${computerScore}`);
         power = true;
@@ -95,7 +97,8 @@ function playSingleRound () {
 
     while (playerHand === computerHand) {
         ties += 1;
-        return bottomText.textContent = (`Never tell me the odds!\nthis is a tie by ${playerHand}`);
+        return bottomText.textContent = (`${randomWord(tieGame)}
+We are stuck in a tie by ${playerHand}`);
     }
     if   ((playerHand === "rock" && computerHand === "scissors" ||
          playerHand === "paper" && computerHand === "rock" ||
@@ -103,12 +106,14 @@ function playSingleRound () {
          {
             playerScore += 1;
             leftScore.textContent = (`${playerScore}`);
-            return bottomText.textContent = (`Is that even possible?\nyour ${playerHand} beats my ${computerHand}`);
+            return bottomText.textContent = (`${randomWord(playerWins)}
+Your ${playerHand} beats my ${computerHand}`);
          }
     else {
             computerScore += 1;
             rightScore.textContent = (`${computerScore}`);
-            return bottomText.textContent = (`Don’t be sorry, be better\nmy ${computerHand} beats your ${playerHand}`);
+            return bottomText.textContent = (`${randomWord(computerWins)}
+My ${computerHand} beats your ${playerHand}`);
     }
 }
 
@@ -153,7 +158,6 @@ function scoreRegister() {
 function randomWord (array) {
     const randomPick = Math.floor (Math.random() * (array.length));
     console.log(randomPick);
-    return console.log(array[randomPick]);
+    return array[randomPick];
 }
 
-randomWord(introText);
