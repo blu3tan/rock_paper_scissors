@@ -112,6 +112,7 @@ p {
 p.left-text {
   visibility: hidden;
   text-align: center;
+  padding-left: 2vw;
 }
 p.right-text {
   visibility:hidden;

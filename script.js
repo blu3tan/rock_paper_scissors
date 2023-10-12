@@ -37,7 +37,7 @@ const computerEndText = [`"More human than human"\nis my motto`, `Praise the sun
 const playerEndText = [`Never argue with the data.\nThis must be a glitch tho`, `I see dead people.\nTry me again..`, `I'll Be Back\nReset and i'll show you`, `Daisy, daisy...\nreset me if you dare`, 
 `The cake is a lie\nI seek revenge!`];
 
-const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑̑', '(͠≖ ͜ʖ͠≖)', '(⌐■_■)', '٩(^‿^)۶', '┌(ㆆ㉨ㆆ)ʃ'];
+const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑̑', '( ˘ ³˘)', '(⌐■_■)', '٩(^‿^)۶', '┌(ㆆ㉨ㆆ)ʃ'];
 const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '٩(๏_๏)۶', 't(-_-t)', '(҂◡_◡)', '(ಥ﹏ಥ)'];
 
 // get player selection by buttons
@@ -46,13 +46,13 @@ rockBtn.addEventListener('click', () => {
     playerChoice = 'rock';
     playSingleRound();
 });
-
 paperBtn.addEventListener('click', () => {
-    playerChoice = 'paper';  
+    playerChoice = 'paper';
+    playSingleRound();  
 });
-
 scissorsBtn.addEventListener('click', () => {
-    playerChoice = 'scissors';   
+    playerChoice = 'scissors';
+    playSingleRound();   
 });
 
 resetBtn.addEventListener('click', (e) => {
@@ -70,7 +70,15 @@ resetBtn.addEventListener('click', (e) => {
         running = true;
     }
     else if (power || running) {
-        bottomText.textContent = ('RESET2');
+        playerScore = 0;
+        computerScore = 0;
+        bottomText.textContent = (' \n ')
+        faces.textContent = ('')
+        leftScore.textContent = (`${playerScore}`);
+        rightScore.textContent = (`${computerScore}`);
+        setTimeout (() => { faces.textContent = ('{•̃_•̃}'); }, 1000);
+        setTimeout (() => { bottomText.textContent = (randomWord(introText)); }, 1500);
+
     }
     
 });
@@ -94,11 +102,13 @@ function getComputerChoice() {
 function playSingleRound () {
     const playerHand = playerChoice;
     const computerHand = getComputerChoice();
+    faces.textContent = (`${computerHand}`)
 
     while (playerHand === computerHand) {
         ties += 1;
+        faces.textContent = ('(Ծ‸ Ծ)')
         return bottomText.textContent = (`${randomWord(tieGame)}
-We are stuck in a tie by ${playerHand}`);
+We are stuck in a tie of ${playerHand}`);
     }
     if   ((playerHand === "rock" && computerHand === "scissors" ||
          playerHand === "paper" && computerHand === "rock" ||
@@ -106,12 +116,14 @@ We are stuck in a tie by ${playerHand}`);
          {
             playerScore += 1;
             leftScore.textContent = (`${playerScore}`);
+            faces.textContent = (randomWord(looseEmoji));
             return bottomText.textContent = (`${randomWord(playerWins)}
 Your ${playerHand} beats my ${computerHand}`);
          }
     else {
             computerScore += 1;
             rightScore.textContent = (`${computerScore}`);
+            faces.textContent = (randomWord(winEmoji));
             return bottomText.textContent = (`${randomWord(computerWins)}
 My ${computerHand} beats your ${playerHand}`);
     }
