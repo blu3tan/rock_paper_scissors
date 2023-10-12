@@ -17,7 +17,7 @@ const bottomText = document.querySelector('#bottomText');
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-let playerChoice;
+let playerChoice ='';
 let power = false;
 let running = false;
 
@@ -149,3 +149,11 @@ function scoreRegister() {
         console.log("-----------------------------------");
     }
 }
+
+function randomWord (array) {
+    const randomPick = Math.floor (Math.random() * (array.length));
+    console.log(randomPick);
+    return console.log(array[randomPick]);
+}
+
+randomWord(introText);
