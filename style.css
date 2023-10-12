@@ -127,3 +127,9 @@ p.bottom-text {
 .clickBlock {
   pointer-events: none;
 }
+
+.rock,
+.paper,
+.scissors, .reset {
+  cursor: pointer;
+}
