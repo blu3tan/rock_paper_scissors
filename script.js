@@ -1,6 +1,4 @@
 
-// define new logic with buttons
-
 const rockBtn = document.querySelector('#rock_button-2');
 const paperBtn = document.querySelector('#paper_button-2');
 const scissorsBtn = document.querySelector('#scissors_button-2');
@@ -31,28 +29,31 @@ const playerWins = [`I want you to feel you're doing well`, `This is fine...`, `
 
 const computerWins = [`It’s all in the reflexes`, `Why so serious?`, `Don’t be sorry, be better`, `You shouldn't have come back`, `YOU DIED`, `Sometimes I amaze even myself`, `Checkmate`, `Waka Waka Waka!`, `Press 'F' to pay respects`, `Flawless Victory!`, `It’s super effective!`];
 
-const computerEndText = [`"More human than human"\nis my motto`, `Praise the sun!\nI shall defeat you once more`, 
-`I find your lack of skill disturbing\nThis was too easy`, `LEEEEEROY\nJENKINSSS`];
+const computerEndText = [`"I WIN"\n"More human than human"`, `I AM VICTORIOUS!\nPraise the sun!`, 
+`VICTORY FOR ME\nThis was too easy`, `I WIN!\nLEEEEEROY JENKINSSS`];
 
-const playerEndText = [`Never argue with the data.\nThis must be a glitch tho`, `I see dead people.\nTry me again..`, `I'll Be Back\nReset and i'll show you`, `Daisy, daisy...\nreset me if you dare`, 
-`The cake is a lie\nI seek revenge!`];
+const playerEndText = [`YOU ARE THE WINNER\nNever argue with the data.`, `YOU WON\nI see dead people.`, `YOU WON THIS TIME\nI'll Be Back`, `YOU KILLED ME\nDaisy, daisy...`, 
+`YOU WIN THIS TIME\nThe cake is a lie`];
 
 const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑̑', '( ˘ ³˘)', '(⌐■_■)', '٩(^‿^)۶', '┌(ㆆ㉨ㆆ)ʃ'];
 const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '٩(๏_๏)۶', 't(-_-t)', '(҂◡_◡)', '(ಥ﹏ಥ)'];
 
-// get player selection by buttons
+// get player selection with buttons
 
 rockBtn.addEventListener('click', () => {
     playerChoice = 'rock';
     playSingleRound();
+    checkWinner();
 });
 paperBtn.addEventListener('click', () => {
     playerChoice = 'paper';
-    playSingleRound();  
+    playSingleRound(); 
+    checkWinner(); 
 });
 scissorsBtn.addEventListener('click', () => {
     playerChoice = 'scissors';
-    playSingleRound();   
+    playSingleRound();
+    checkWinner();  
 });
 
 resetBtn.addEventListener('click', (e) => {
@@ -102,7 +103,6 @@ function getComputerChoice() {
 function playSingleRound () {
     const playerHand = playerChoice;
     const computerHand = getComputerChoice();
-    faces.textContent = (`${computerHand}`)
 
     while (playerHand === computerHand) {
         ties += 1;
@@ -129,47 +129,22 @@ My ${computerHand} beats your ${playerHand}`);
     }
 }
 
-// play a game of 5 rounds of RPS
-
-function gameOf5 () {
-    playerScore = 0;
-    computerScore = 0;
-    ties = 0;
-
-    for (let i = 0; i <=4; i++) {
-        playSingleRound();
-    }
-    scoreRegister();
-}
-
-// Keep track of scores and print on the console the outcome
-
-function scoreRegister() {
-    let winColor = "color:LawnGreen;";
-    let looseColor = "color:OrangeRed;";
-    let tieColor = "color:DeepSkyBlue;"
-
-    console.log(`${ties} rounds ended in a tie`);
-    console.log(`You won ${playerScore} rounds`);
-    console.log(`I won ${computerScore} rounds`);
-
-    if (playerScore === computerScore) {
-        console.log("%c It was a fair game, we are even.", tieColor);
-        console.log("-----------------------------------");
-    }
-    else if (playerScore > computerScore) {
-        console.log("%c You Won the match!? I am speachless...", winColor);
-        console.log("-----------------------------------");
-    }
-    else {
-        console.log("%c You Loose the the game! Very predictable outcome...", looseColor);
-        console.log("-----------------------------------");
-    }
-}
-
 function randomWord (array) {
     const randomPick = Math.floor (Math.random() * (array.length));
     console.log(randomPick);
     return array[randomPick];
+}
+
+function checkWinner () {
+    if (playerScore === 5) {
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓')
+        setTimeout (() => {faces.textContent = ('(╥﹏╥)');}, 1000);
+        return bottomText.textContent = (randomWord(playerEndText));
+    }
+    else if (computerScore === 5) {
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓')
+        setTimeout (() => {faces.textContent = ('(⌐■_■)');}, 1000);
+        return bottomText.textContent = (randomWord(computerEndText));
+    }
 }
 
