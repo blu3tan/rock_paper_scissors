@@ -76,13 +76,11 @@ p {
   display: flex;
   align-items:flex-end;
   justify-content: center;
-  /* border: 1px solid red; */
   flex: 0.5;
   max-height: 80px;
 }
 .top {
   background-color: #140E02;
-  /* border: 1px solid red; */
 }
 .top.left {
   flex: 1;
@@ -91,7 +89,6 @@ p {
   gap: 10px;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 .top.right {
   flex: 1;
@@ -100,7 +97,6 @@ p {
   gap: 10px;
   justify-content: center;
   align-items:center;
-  /* border: 1px solid red; */
   padding-right: 6vw;
 }
 .top.center {
@@ -118,9 +114,6 @@ p.right-text {
   visibility:hidden;
   text-align: center;
 }
-p.face {
-
-}
 p.bottom-text {
   padding-right: 3vw;
   white-space: pre;
@@ -129,4 +122,8 @@ p.bottom-text {
 .ledLight {
   fill: #2B2A28;
   opacity: 100%;
+}
+
+.clickBlock {
+  pointer-events: none;
 }

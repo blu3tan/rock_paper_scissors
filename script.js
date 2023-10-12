@@ -79,6 +79,9 @@ resetBtn.addEventListener('click', (e) => {
         rightScore.textContent = (`${computerScore}`);
         setTimeout (() => { faces.textContent = ('{•̃_•̃}'); }, 1000);
         setTimeout (() => { bottomText.textContent = (randomWord(introText)); }, 1500);
+        rockBtn.classList.remove('clickBlock');
+        paperBtn.classList.remove('clickBlock');
+        scissorsBtn.classList.remove('clickBlock');
 
     }
     
@@ -89,12 +92,9 @@ resetBtn.addEventListener('click', (e) => {
 function getComputerChoice() {
     let randomChoice = Math.floor (Math.random() * (3))
     switch (randomChoice) {
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
+        case 0: return "rock";
+        case 1: return "paper";
+        case 2: return "scissors";
         }
 }
 
@@ -137,13 +137,19 @@ function randomWord (array) {
 
 function checkWinner () {
     if (playerScore === 5) {
-        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓')
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(╥﹏╥)');}, 1000);
+        rockBtn.classList.add('clickBlock');
+        paperBtn.classList.add('clickBlock');
+        scissorsBtn.classList.add('clickBlock');
         return bottomText.textContent = (randomWord(playerEndText));
     }
     else if (computerScore === 5) {
-        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓')
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(⌐■_■)');}, 1000);
+        rockBtn.classList.add('clickBlock');
+        paperBtn.classList.add('clickBlock');
+        scissorsBtn.classList.add('clickBlock');
         return bottomText.textContent = (randomWord(computerEndText));
     }
 }
