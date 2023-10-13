@@ -42,7 +42,9 @@ const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '
 // get player selection with buttons
 
 blu3Link.addEventListener('click', () => {
-    document.getElementById('screen').style.visibility = 'hidden';
+    document.getElementById('credits').style.visibility = 'visible';
+    setTimeout (() => {document.getElementById('credits').style.visibility = 'hidden';} , 3000);
+
 });
 
 rockBtn.addEventListener('click', () => {

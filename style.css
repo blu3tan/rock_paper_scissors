@@ -36,6 +36,21 @@ p {
   padding: 5vh 7vh 5vh 8vh;
   position: relative;
 }
+.credits {
+  visibility: hidden;
+  z-index: 6;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex: 1;
+  gap: 50px;
+  max-width: 780px;
+  min-height: 300px;
+  background-color: #140E02;
+  margin: 0 4vh 0 2vh;
+}
 .monitor {
   display: flex;
   flex-direction: column;
@@ -132,4 +147,8 @@ p.bottom-text {
 .paper, .scissors, 
 .reset, .blu3 {
   cursor: pointer;
+}
+.creditsText {
+  padding-right: 4vw;
+  text-align: center;
 }
