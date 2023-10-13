@@ -4,6 +4,7 @@ const paperBtn = document.querySelector('#paper_button-2');
 const scissorsBtn = document.querySelector('#scissors_button-2');
 const resetBtn = document.querySelector('#reset_button-2');
 const ledLight = document.querySelector('#led-2')
+const blu3Link = document.getElementById('blu3_link-2');
 
 const leftText = document.querySelector('#left');
 const rightText = document.querySelector('#right');
@@ -21,7 +22,7 @@ let running = false;
 
 // text variables declaration
 const introText = [`Play again, I dare you.\nI double dare you!`, `You seem a decent fellow.\nI hate to kill you.`, `We meet again, at last.\nChoose your weapon wisely…`, 
-`It's A Me, Odin\ni challenge you...`, `Shall we Play a game?\nI can smell your fear...`];
+`It's A Me, Odin\nI challenge you...`, `Shall we Play a game?\nI can smell your fear...`];
 
 const tieGame = [`Inconceivable!`, `Anybody want a peanut?`, `Try not. Do, or do not.`, `Alrighty then!`, `I can't believe this!`, `You must be cheating!`, `I find your luck disgusting`, `I’ll have what you're having`]
 
@@ -39,6 +40,10 @@ const winEmoji = ['ヽ(´▽`)/', 'ᕙ(⇀‸↼‶)ᕗ', '(•̀ᴗ•́)و ̑�
 const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '٩(๏_๏)۶', 't(-_-t)', '(҂◡_◡)', '(ಥ﹏ಥ)'];
 
 // get player selection with buttons
+
+blu3Link.addEventListener('click', () => {
+    document.getElementById('screen').style.visibility = 'hidden';
+});
 
 rockBtn.addEventListener('click', () => {
     playerChoice = 'rock';
@@ -67,6 +72,10 @@ resetBtn.addEventListener('click', (e) => {
         rightScore.setAttribute('style','visibility: visible;'); } , 3200);
         leftScore.textContent = (`${playerScore}`);
         rightScore.textContent = (`${computerScore}`);
+        rockBtn.classList.remove('clickBlock');
+        paperBtn.classList.remove('clickBlock');
+        scissorsBtn.classList.remove('clickBlock');
+        blu3Link.classList.remove('clickBlock');
         power = true;
         running = true;
     }
@@ -153,4 +162,5 @@ function checkWinner () {
         return bottomText.textContent = (randomWord(computerEndText));
     }
 }
+
 

@@ -129,7 +129,7 @@ p.bottom-text {
 }
 
 .rock,
-.paper,
-.scissors, .reset {
+.paper, .scissors, 
+.reset, .blu3 {
   cursor: pointer;
 }

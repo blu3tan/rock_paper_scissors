@@ -20,34 +20,34 @@ function getComputerChoice() {
 
 // generate the player choice (console version)
 
-// function getPlayerChoice() {
-//     let input = prompt("Type Rock, Paper, or Scissors");
-//   while (input == null) {
-//     input = prompt("Type Rock, Paper, or Scissors");
-//   }
-//   let check = validateInput(input);
-//   while (check == false) {
-//     input = prompt("You entered a wrong choice, type Rock, Paper, or Scissors.");
-//     while (input == null) {
-//       input = prompt("Type Rock, Paper, or Scissors");
-//     }
-//     check = validateInput(input);
-//   }
-//   return input;
-// }
+function getPlayerChoice() {
+    let input = prompt("Type Rock, Paper, or Scissors");
+  while (input == null) {
+    input = prompt("Type Rock, Paper, or Scissors");
+  }
+  let check = validateInput(input);
+  while (check == false) {
+    input = prompt("You entered a wrong choice, type Rock, Paper, or Scissors.");
+    while (input == null) {
+      input = prompt("Type Rock, Paper, or Scissors");
+    }
+    check = validateInput(input);
+  }
+  return input;
+}
 
-// validate the player input to avoid everything other than RPS
+validate the player input to avoid everything other than RPS
 
-// function validateInput(choice) {
-//     if ((choice === "rock" ||
-//          choice === "paper" ||
-//          choice === "scissors")) {
-//             return true;
-//          }
-//     else {
-//         return false;
-//     }
-// }
+function validateInput(choice) {
+    if ((choice === "rock" ||
+         choice === "paper" ||
+         choice === "scissors")) {
+            return true;
+         }
+    else {
+        return false;
+    }
+}
 
 // play one round of RPS
 
