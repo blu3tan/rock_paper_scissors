@@ -24,8 +24,9 @@ h2 {
 }
 p {
   color: #C29615;
-  font-size: 3vw;
+  font-size: 2.8vw;
 }
+
 
 .main {
   display: flex;
@@ -54,9 +55,9 @@ p {
 .monitor {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 85%;
   flex: 1;
-  gap: 50px;
+  gap: 4vh;
   max-width: 780px;
   min-height: 300px;
   background-color: #140E02;
@@ -151,4 +152,41 @@ p.bottom-text {
 .creditsText {
   padding-right: 4vw;
   text-align: center;
+}
+
+@media (min-width: 1200px) {
+  p.creditsText {
+    font-size: 2.2vw;
+  }
+  p {
+    font-size: 2.5vw;
+  }
+}
+@media (max-width: 1200px) {
+  p.creditsText {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3.8vw;
+  }
+  #screen {
+    gap: 5vh;
+  }
+}
+@media (max-width: 750px) {
+  p {
+    font-size: 4.2vw;
+  }
+  #screen {
+    gap: 0vh;
+  }
+  #container-bottom {
+    align-items: center;
+  }
+  #top {
+  align-self: flex-end;
+  }
+  #faces {
+    padding-top: 10vh;
+  }
 }
