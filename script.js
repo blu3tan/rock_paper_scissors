@@ -13,11 +13,12 @@ const rightScore = document.querySelector('#rightScore');
 const faces = document.querySelector('#faces');
 const bottomText = document.querySelector('#bottomText');
 
-let buttonSound = () => new Audio('./sound/button.mp3').play();
+let buttonSound = () => new Audio('./sound/click.mp3').play();
 let winSound = () => new Audio('./sound/win.mp3').play();
 let looseSound = () => new Audio('./sound/loose.mp3').play();
 let powerSound = () => new Audio('./sound/power.mp3').play();
-let endSound = () => new Audio('./sound/ending.mp3').play();
+let endLoose = () => new Audio('./sound/endloose.mp3').play();
+let endWin = () => new Audio('./sound/endwin.mp3').play();
 
 let playerScore = 0;
 let computerScore = 0;
@@ -50,7 +51,6 @@ const looseEmoji = ['(╯°□°）╯', '(`･ω･´)', 'ლ(ಠ益ಠლ)', '
 blu3Link.addEventListener('click', () => {
     document.getElementById('credits').style.visibility = 'visible';
     setTimeout (() => {document.getElementById('credits').style.visibility = 'hidden';} , 3000);
-
 });
 
 rockBtn.addEventListener('click', () => {
@@ -76,7 +76,7 @@ resetBtn.addEventListener('click', (e) => {
     buttonSound();
     ledLight.classList.remove('ledLight');
     if (!power && !running) {
-        powerSound();
+        setTimeout (() => {powerSound();}, 300);
         setTimeout (() => { bottomText.textContent = (randomWord(introText)); }, 2500);
         setTimeout (() => { faces.textContent = ('{•̃_•̃}'); }, 2000);
         setTimeout (() => { leftText.setAttribute('style','visibility: visible;'); 
@@ -137,7 +137,7 @@ We are stuck in a tie of ${playerHand}`);
          playerHand === "paper" && computerHand === "rock" ||
          playerHand === "scissors" && computerHand === "paper"))
          {
-            winSound();
+            setTimeout (() => {winSound();}, 300);
             playerScore += 1;
             leftScore.textContent = (`${playerScore}`);
             faces.textContent = (randomWord(looseEmoji));
@@ -145,7 +145,7 @@ We are stuck in a tie of ${playerHand}`);
 Your ${playerHand} beats my ${computerHand}`);
          }
     else {
-            looseSound();
+            setTimeout (() => {looseSound();}, 300);
             computerScore += 1;
             rightScore.textContent = (`${computerScore}`);
             faces.textContent = (randomWord(winEmoji));
@@ -162,7 +162,7 @@ function randomWord (array) {
 
 function checkWinner () {
     if (playerScore === 5) {
-        endSound();
+        setTimeout (() => {endWin();}, 800);
         faces.textContent = ('▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(╥﹏╥)');}, 1000);
         rockBtn.classList.add('clickBlock');
@@ -171,7 +171,7 @@ function checkWinner () {
         return bottomText.textContent = (randomWord(playerEndText));
     }
     else if (computerScore === 5) {
-        endSound();
+        setTimeout (() => {endLoose();}, 800);
         faces.textContent = ('▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(⌐■_■)');}, 1000);
         rockBtn.classList.add('clickBlock');
