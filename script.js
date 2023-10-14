@@ -1,4 +1,3 @@
-
 const rockBtn = document.querySelector('#rock_button-2');
 const paperBtn = document.querySelector('#paper_button-2');
 const scissorsBtn = document.querySelector('#scissors_button-2');
@@ -180,5 +179,3 @@ function checkWinner () {
         return bottomText.textContent = (randomWord(computerEndText));
     }
 }
-
-

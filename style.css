@@ -16,17 +16,11 @@ html {
 
 body {
   font-family: "VT323", monospace;
-  background-color: #fff;
-
-}
-h2 {
-  color: #fff;
 }
 p {
   color: #C29615;
   font-size: 2.8vw;
 }
-
 
 .main {
   display: flex;
@@ -90,6 +84,7 @@ p {
   justify-content: center;
   flex: 1;
   max-height: 170px;
+  border: solid 1px red;
 }
 .container-bottom {
   display: flex;
@@ -97,6 +92,7 @@ p {
   justify-content: center;
   flex: 0.5;
   max-height: 80px;
+  border: solid 1px red;
 }
 .top {
   background-color: #140E02;
@@ -108,6 +104,7 @@ p {
   gap: 10px;
   align-items: center;
   justify-content: center;
+  border: solid 1px red;
 }
 .top.right {
   flex: 1;
@@ -117,12 +114,14 @@ p {
   justify-content: center;
   align-items:center;
   padding-right: 6vw;
+  border: solid 1px red;
 }
 .top.center {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 1px red;
 }
 p.left-text {
   visibility: hidden;
@@ -190,6 +189,22 @@ p.bottom-text {
   align-self: flex-end;
   }
   #faces {
-    padding-top: 10vh;
+  
+  }
+}
+@media (max-width: 550px) {
+  #screen {
+    min-width: 200px;
+    min-height: 200px;
+  }
+  #main {
+    padding: 0;
+    padding-top: 0;
+  }
+  #credits {
+    margin: 0;
+  }
+  #frontImg {
+    min-width: 0;
   }
 }
