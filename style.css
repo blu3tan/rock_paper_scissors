@@ -205,23 +205,42 @@ p.bottom-text {
   .top.top.right {
     padding-right: 8vw;
   }
+  #credits {
+    min-height: 200px;
+  }
 }
-@media (orientation: landscape) {
-  /* #frontImg {
-  min-height: 0;
-  min-width: 0;
-  width: 50%;
-} */
-#screen, #back, #frontImg, #credits {
+/* @media (orientation: landscape) and
+(max-width: 550px) and 
+(min-width = 1200px) {
+#screen {
   min-width: 350px;
-  min-height: 0;
-  width: 50%;
+  min-height: 300px;
+  width: 70%;
   flex: 0;
 }
+#back {
+  min-width: 350px;
+  min-height: 0;
+  width: 70%;
+  flex: 0;
+}
+#frontImg {
+  min-width: 350px;
+  min-height: 0;
+  width: 70%;
+  flex: 0;
+}
+#credits {
+  min-width: 350px;
+  min-height: 300px;
+  width: 70%;
+  flex: 0;
+}
+
 p {
   font-size: 2.5vw;
 }
 p.creditsText {
   font-size: 2.4vw;
 }
-}
+} */

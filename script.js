@@ -162,7 +162,7 @@ function randomWord (array) {
 function checkWinner () {
     if (playerScore === 5) {
         setTimeout (() => {endWin();}, 800);
-        faces.textContent = ('▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓');
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(╥﹏╥)');}, 1000);
         rockBtn.classList.add('clickBlock');
         paperBtn.classList.add('clickBlock');
@@ -171,7 +171,7 @@ function checkWinner () {
     }
     else if (computerScore === 5) {
         setTimeout (() => {endLoose();}, 800);
-        faces.textContent = ('▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓');
+        faces.textContent = ('▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓\n▓▓▓▓▓▓▓▓▓▓');
         setTimeout (() => {faces.textContent = ('(⌐■_■)');}, 1000);
         rockBtn.classList.add('clickBlock');
         paperBtn.classList.add('clickBlock');
