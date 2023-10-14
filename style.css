@@ -8,7 +8,7 @@ html {
   }
 
 * {
-	padding: 0;
+	/* padding: 0; */
 	margin: 0;
 	}
 
@@ -178,7 +178,7 @@ p.bottom-text {
     gap: 0vh;
   }
   #container-bottom {
-    align-items: center;
+    align-items:flex-start;
   }
   #top {
   align-self: flex-end;
@@ -196,10 +196,13 @@ p.bottom-text {
     padding: 0;
     padding-top: 0;
   }
-  #credits {
-    margin: 0;
-  }
   #frontImg {
     min-width: 0;
+  }
+  .top.left {
+    padding-left: 5vw;
+  }
+  .top.top.right {
+    padding-right: 8vw;
   }
 }
