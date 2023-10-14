@@ -7,7 +7,8 @@ I've learnd a lot in the process and i am quite proud of the final result.
 One of my first goal for the graphical side was to provide with the game an
 original user experience but at the same time keeping it simple.
 I have used a custom svg with an attached image and the buttons mapped on top
-as vector shapes so the project is fully responsive.
+as vector shapes so the project is fully responsive, although the ux and visibility
+on mobile is far from optimal but i decided not to fall deeper into the rabbit hole.
 
 CREDITS:
 
