@@ -84,7 +84,6 @@ p {
   justify-content: center;
   flex: 1;
   max-height: 170px;
-  border: solid 1px red;
 }
 .container-bottom {
   display: flex;
@@ -92,7 +91,6 @@ p {
   justify-content: center;
   flex: 0.5;
   max-height: 80px;
-  border: solid 1px red;
 }
 .top {
   background-color: #140E02;
@@ -104,7 +102,6 @@ p {
   gap: 10px;
   align-items: center;
   justify-content: center;
-  border: solid 1px red;
 }
 .top.right {
   flex: 1;
@@ -114,14 +111,12 @@ p {
   justify-content: center;
   align-items:center;
   padding-right: 6vw;
-  border: solid 1px red;
 }
 .top.center {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1px red;
 }
 p.left-text {
   visibility: hidden;
