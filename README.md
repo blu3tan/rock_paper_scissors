@@ -1,5 +1,7 @@
 ROCK PAPER SCISSORS
 
+Live demo: https://blu3tan.github.io/rock_paper_scissors/
+
 Ok i've probably spent to much time on polishing this, but i had an idea and
 i wanted to achieve the exact look i had in mind.
 I've learnd a lot in the process and i am quite proud of the final result.
