@@ -33,8 +33,6 @@ on mobile is far from optimal but i decided not to fall deeper into the rabbit h
 -   The ascii emoji are from [Dysfunc](https://github.com/dysfunc/ascii-emoji)
 
 I have hidden (not quite) the credits inside the design as an easter egg.
-I also left at the bottom of this readme the old notes written on the first
-stage of this project.
 
 Enjoy.
 
