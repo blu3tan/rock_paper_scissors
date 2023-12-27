@@ -2,7 +2,7 @@
 
 <div align="center">
 <a href="https://github.com/blu3tan/rock_paper_scissors">
-<img src="./RPS_gif.gif">
+<img src="./RPS_game.gif">
 </a>
 
 Game developed for the Odin Project curriculum
